@@ -6,15 +6,7 @@
 package espol.edu.ec.packetsniffer;
 
 import com.sun.jna.Platform;
-import java.io.EOFException;
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
-import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.pcap4j.core.NotOpenException;
 import org.pcap4j.core.PacketListener;
 import org.pcap4j.core.PcapHandle;
@@ -23,9 +15,7 @@ import org.pcap4j.core.PcapNetworkInterface;
 import org.pcap4j.core.PcapNetworkInterface.PromiscuousMode;
 import org.pcap4j.core.PcapPacket;
 import org.pcap4j.core.PcapStat;
-import org.pcap4j.core.Pcaps;
 import org.pcap4j.packet.IpV4Packet;
-import org.pcap4j.packet.Packet;
 import org.pcap4j.util.NifSelector;
 
 /**
@@ -57,7 +47,6 @@ public class Main {
         int readTimeout = 50; // in milliseconds                   
         final PcapHandle handle;
         handle = device.openLive(snapshotLength, PromiscuousMode.PROMISCUOUS, readTimeout);
-
         // Create a listener that defines what to do with the received packets
         PacketListener listener = new PacketListener() {
             @Override
